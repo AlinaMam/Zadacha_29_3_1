@@ -1,7 +1,9 @@
 package com.example;
 
+import java.io.PrintWriter;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.List;
 
 public class ProductDB {
     private static final String URL = "jdbc:postgresql://localhost:5432/store?user=postgres&password=123";
@@ -54,5 +56,12 @@ public class ProductDB {
             e.printStackTrace();
         }
         return list;
+    }
+
+    public static void getResult(ArrayList<User> list, PrintWriter writer) {
+        for (User user: list) {
+            writer.println("User id: " + user.getId() + " ; " + "User name: " + user.getName() +
+                    " ; " + "User age: " + user.getAge());
+        }
     }
 }

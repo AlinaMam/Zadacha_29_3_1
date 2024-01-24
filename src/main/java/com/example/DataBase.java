@@ -16,6 +16,8 @@ public class DataBase extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.setContentType("text/html");
+        PrintWriter writer = resp.getWriter();
         ArrayList<User> users = ProductDB.select();
         req.setAttribute("users", users);
         req.getRequestDispatcher("/index.jsp").forward(req, resp);
